@@ -1,0 +1,49 @@
+This is a  program  which was designed as part of my "30-Day Python Challenge." 
+
+Constants and Functions:
+   - NOTES_FILE: A constant that holds the name of the file (notes.txt) where notes are stored.
+   - show_menu(): Displays the main menu with options to add, view, update, delete notes, or exit the application.
+   - add_note(): 
+     - Asks the user to enter a note.
+     - Opens notes.txt in append mode ("a") and writes the new note to the file, followed by a newline character.
+     - Displays a user friendly msg that note was successfully added.
+   - view_notes(): 
+     - Tries to open notes.txt in read mode ("r") and reads all lines into a list called notes.
+     - If there are no notes, it informs the user that no notes were found.
+     - Otherwise, it prints each note with its corresponding number.
+     - If the file does not exist, it catches a FileNotFoundError and informs the user.
+   - update_note(): 
+     - Calls view_notes() to display current notes.
+     - Reads all notes into a list and prompts the user to enter the number of the note they want to update.
+     - If the entered index is valid, it asks for the updated note content and replaces the old note in the list.
+     - Writes the updated list back to notes.txt in write mode ("w").
+     - Handles invalid input and file not found errors.
+   - delete_note(): 
+     - Calls view_notes() to display current notes.
+     - Reads all notes into a list and prompts the user to enter the number of the note they want to delete.
+     - If the entered index is valid, it removes the note from the list and writes the updated list back to notes.txt.
+     - Confirms deletion by showing the deleted note content.
+     - Handles invalid input and file not found errors.
+   - main(): 
+     - Runs a while loop displaying the menu and asking for user input.
+     - Based on user input, it calls one of the respective functions or exits the program.
+     - If an invalid choice is entered, it informs the user and prompts again.
+
+- Program Execution:
+   - The script checks if it's being run as the main module (i.e., not imported), and if so, it calls main() to start the program.
+
+What I've learnt:
+- File Handling: File handling is basically a way of performing operations on files like opening, writing, reading, and closing files(This is handling like opening, reading, writing, closing).
+  It allows information to store permanently.
+- Some basic things tha we've to know:
+    -> File: A named location on disk to store related data permanently.
+    -> Opening a file: Creating a file on disk and establishing a connection b/w file and python using .open(fileName, mode)
+    -> Reading: Fetching available data/contents from a file using fileName.read(), fileName.readline(), fileName.readlines()
+    -> Writing: Writing/sending the data/content into file to store it permanently using fileName.write(content to write)
+    -> Closing: Freeing up resources and properly ending the connection b/w file and python to store the data correctly using fileName.close()
+- Some basic modes in files:
+    'r' - Read mode, fetching / reading data from file. (Default mode).
+    'w' - Write mode, creates a new file(if not exists) or ovwerwrites when we apply this mode on file that containing data.
+    'a' - append mode, the contents / data will be added to the end of the file.
+    'b' - binary mode (Like for images, pdfs...)
+    'x' - creates a new file, if already exists returns error.
